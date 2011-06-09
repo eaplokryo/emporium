@@ -1,0 +1,20 @@
+<h1>Welcome</h1>
+<p>Hello World</p>
+
+<p>lang: <%= @lang %></p>
+<p>def_lang: <%= @def_lang %></p>
+
+<% if params.include? "locale" %>
+  <p>locale: <%= params[:locale] %></p>
+<% else %>
+  <p>locale: dupa</p>
+<% end %>
+
+<ul>
+<% @langs.each do |l| %>
+  <li><%= l %></li>
+<% end %>
+</ul>
+
+<%= link_to root_url %>
+<%= link_to welcome_url %>
