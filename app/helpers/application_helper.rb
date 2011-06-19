@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def language_switcher(options = {})
-    opts = {:language_switcher_class => 'language_switcher', :language_current_class => 'language_current'}
+    opts = {:language_switcher_class => "language_switcher", :language_current_class => "language_current"}
     opts.merge! options
     content_tag :div, :class => opts[:language_switcher_class] do
       content_tag :ul do
