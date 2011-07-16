@@ -22,17 +22,10 @@
     <%= link_to "Profile", edit_user_registration_path %>
   <% else %>
     <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-    <%= link_to "Sign in with Github", user_omniauth_authorize_path(:github) %>
   <% end %>
 </div>
 
 <%= yield %>
-
-<% if session["devise.github_data"] %>
-  <% session["devise.github_data"].each do |v| %>
-    <p><%= v %></p>
-  <% end %>
-<% end %>
 
 </body>
 </html>
