@@ -1,4 +1,4 @@
-raw_config = File.read("#{Rails.root}/config/smtp_config.yml")
+raw_config = File.read("#{Rails.root}/config/secret/smtp_config.yml")
 SMTP_CONFIG = YAML.load(raw_config)[Rails.env].symbolize_keys
 
 ActionMailer::Base.smtp_settings = {

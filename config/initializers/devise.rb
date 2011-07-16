@@ -180,7 +180,13 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
+
+  raw_config = File.read("#{Rails.root}/config/secret/oauth_config.yml")
+  OAUTH_CONFIG = YAML.load(raw_config)[Rails.env].symbolize_keys
+
+  #config.omniauth :facebook, OAUTH_CONFIG[:facebook]["app_id"], OAUTH_CONFIG[:facebook]["app_secret"]
+  config.omniauth :github, OAUTH_CONFIG[:github]["client_id"], OAUTH_CONFIG[:github]["secret"]
+
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
